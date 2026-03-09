@@ -1,0 +1,11 @@
+services:
+  xcode-zai:
+    image: oven/bun:canary
+    container_name: xcode-zai-proxy
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - "9595:9595"
+    command: ["bun", "run", "index.ts"]
+    restart: unless-stopped
