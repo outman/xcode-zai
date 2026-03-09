@@ -16,7 +16,7 @@ async function proxyRequest(c: any, targetPath: string) {
 
   // 获取请求头，排除一些 hop-by-hop 头
   const headers = new Headers()
-  const hopByHopHeaders = ['host', 'connection', 'keep-alive', 'transfer-encoding']
+  const hopByHopHeaders = ['host', 'connection', 'keep-alive', 'transfer-encoding', 'content-encoding', 'content-length']
 
   c.req.raw.headers.forEach((value: string, key: string) => {
     if (!hopByHopHeaders.includes(key.toLowerCase())) {
