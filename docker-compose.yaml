@@ -1,7 +1,7 @@
 services:
   xcode-zai:
     image: oven/bun:canary
-    container_name: xcode-zai-proxy
+    container_name: xcode-zai
     working_dir: /app
     volumes:
       - .:/app
