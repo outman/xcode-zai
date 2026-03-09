@@ -1,4 +1,9 @@
+Xcode intelligence adapte zai/bigmodel
+
+## Development
+
 To install dependencies:
+
 ```sh
 bun install
 ```
@@ -9,3 +14,10 @@ bun run dev
 ```
 
 open http://localhost:3000
+
+
+## Docker
+
+```
+docker compose -f docker-compose.yaml up
+```
