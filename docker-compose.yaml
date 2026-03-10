@@ -1,13 +1,9 @@
 services:
   xcode-zai:
-    image: oven/bun:canary
+    image: 0utman/xcode-zai
     container_name: xcode-zai
-    working_dir: /app
-    volumes:
-      - .:/app
     ports:
       - "9595:3000"
-    command: ["bun", "run", "src/index.ts"]
     restart: unless-stopped
     env_file:
       - .env

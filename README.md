@@ -42,19 +42,21 @@ bun run dev
 docker compose up -d
 ```
 
-### 构建 Docker 镜像
+服务将在 http://localhost:9595 启动。
+
+### 直接运行镜像
+
+```sh
+docker run -d -p 9595:3000 \
+  -e TARGET_BASE=https://open.bigmodel.cn/api/paas/v4 \
+  -e API_KEY=your-api-key \
+  0utman/xcode-zai
+```
+
+### 构建自定义镜像
 
 ```sh
 docker build -t xcode-zai .
-```
-
-运行容器：
-
-```sh
-docker run -d -p 3000:3000 \
-  -e TARGET_BASE=https://open.bigmodel.cn/api/paas/v4 \
-  -e API_KEY=your-api-key \
-  xcode-zai
 ```
 
 ## API Endpoints
