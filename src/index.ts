@@ -7,7 +7,9 @@ const app = new Hono()
 // 使用日志中间件
 app.use('*', logger())
 
-const TARGET_BASE = 'https://open.bigmodel.cn/api/paas/v4'
+// 从环境变量读取配置
+const TARGET_BASE = process.env.TARGET_BASE || 'https://open.bigmodel.cn/api/paas/v4'
+const API_KEY = process.env.API_KEY
 
 // 通用代理函数
 async function proxyRequest(c: any, targetPath: string) {
@@ -23,6 +25,11 @@ async function proxyRequest(c: any, targetPath: string) {
       headers.set(key, value)
     }
   })
+
+  // 如果配置了 API_KEY，则覆盖 Authorization header
+  if (API_KEY) {
+    headers.set('Authorization', `Bearer ${API_KEY}`)
+  }
 
   // 获取请求体
   let body: string | undefined
